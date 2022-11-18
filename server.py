@@ -9,9 +9,10 @@ while True:
         print("{} connected".format( address ))
 
         response = client.recv(255)
-        if response != "":
-                print(response)
+        print(response)
+        if response[-3:] == b"EOF":
+                break
 
 print("Close")
 client.close()
-stock.close()
+socket.close()
